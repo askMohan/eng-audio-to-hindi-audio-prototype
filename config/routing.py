@@ -1,0 +1,1 @@
+from streaming.routing import websocket_urlpatterns

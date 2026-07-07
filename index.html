@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>English to Hindi Voice Translator</title>
+    <link rel="icon" href="/frontend/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/frontend/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="panel">
+        <div class="header">
+          <div>
+            <p class="eyebrow">Local pipeline</p>
+            <h1>English to Hindi Voice Translator</h1>
+          </div>
+          <span id="statusBadge" class="badge">Idle</span>
+        </div>
+
+        <div class="controls">
+          <label class="field">
+            <span>Tone</span>
+            <select id="toneSelect">
+              <option value="polite_conversational" selected>Polite conversational</option>
+              <option value="formal">Formal</option>
+              <option value="business">Business</option>
+              <option value="casual">Casual</option>
+            </select>
+          </label>
+
+          <button id="recordButton" class="primary" type="button">Start recording</button>
+          <button id="stopButton" type="button" disabled>Stop and translate</button>
+          <button id="cancelButton" class="dangerButton" type="button" disabled>Cancel</button>
+        </div>
+
+        <div class="meters">
+          <div>
+            <span>Session</span>
+            <strong id="sessionId">Not started</strong>
+          </div>
+          <div>
+            <span>Frames sent</span>
+            <strong id="frameCount">0</strong>
+          </div>
+          <div>
+            <span>Latency</span>
+            <strong id="latency">-</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="panel">
+          <h2>English transcript</h2>
+          <div id="englishOutput" class="output muted">Transcript will appear here after recording stops.</div>
+        </article>
+
+        <article class="panel">
+          <h2>Hindi translation</h2>
+          <div id="hindiOutput" class="output muted">Hindi text will appear here.</div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="sectionTitle">
+          <h2>Hindi audio</h2>
+          <button id="clearButton" type="button">Clear</button>
+        </div>
+        <div id="audioList" class="audioList muted">Converted audio will appear here.</div>
+      </section>
+
+      <section class="panel">
+        <h2>Events</h2>
+        <ol id="eventLog" class="eventLog"></ol>
+      </section>
+    </main>
+
+    <script src="/frontend/app.js"></script>
+  </body>
+</html>
